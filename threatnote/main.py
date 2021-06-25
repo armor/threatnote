@@ -9,7 +9,6 @@ import json
 from redis import Redis
 import rq
 from sqlalchemy import func, asc, desc
-from flask_wtf import CSRFProtect
 
 queue = rq.Queue('enricher', connection=Redis.from_url('redis://'))
 from lib import add_db_entry, get_comments, time_ago,escape_jquery, get_user_info, escape_jquery, parse_indicators
@@ -18,11 +17,6 @@ main = Blueprint('main', __name__)
 
 app = create_app()
 app.app_context().push()
-
-csrf = CSRFProtect(app)
-csrf.exempt("api.api_indicators_list")
-csrf.exempt("app.api_indicator_get")
-
 
 #these need to be imported after app is created
 import reports

@@ -397,7 +397,7 @@
         		
         		if($('#new_comment').val() != '') {
             	$.post('{{url_for('add_comment')}}',   // url
-         		       { 'comment': $('#new_comment').val(), '_csrf_token':'{{csrf_token()}}','obj_type':'indicator', 'obj_id':'{{indicator.id}}', 'user':'{{user_id}}' }, // data to be submit
+         		       { 'comment': $('#new_comment').val(), 'obj_type':'indicator', 'obj_id':'{{indicator.id}}', 'user':'{{user_id}}' }, // data to be submit
          		       function(data, status, jqXHR) {// success callback
          		                if(data=='success') {
          		                	location.reload();
