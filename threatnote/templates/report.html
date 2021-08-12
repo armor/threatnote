@@ -756,7 +756,7 @@ visibility: hidden;
 	    	});
         	$('#confidence_{{indicator["id"]}}').change(function () {
             	$.post('{{url_for("update_indicator", report_id=report_info.id, indicator_id=indicator["id"])}}',   // url
-            			{'confidence': this.value'}, // data to be submit
+            			{'confidence': this.value}, // data to be submit
            		       function(data, status, jqXHR) {// success callback
            		                if(data!='success') {
            		                	alert('An error occurred: '+data)
@@ -766,7 +766,7 @@ visibility: hidden;
 	        });
         	$('#kill_chain_{{indicator["id"]}}').change(function () {
             	$.post('{{url_for("update_indicator", report_id=report_info.id, indicator_id=indicator["id"])}}',   // url
-            			{'kill_chain': this.value'}, // data to be submit
+            			{'kill_chain': this.value}, // data to be submit
            		       function(data, status, jqXHR) {// success callback
            		                if(data!='success') {
            		                	alert('An error occurred: '+data)
@@ -776,7 +776,7 @@ visibility: hidden;
         	$('#diamond_model_{{indicator["id"]}}').change(function () {
         		switchDiamond({{indicator["id"]}},this.value);
             	$.post('{{url_for("update_indicator", report_id=report_info.id, indicator_id=indicator["id"])}}',   // url
-            			{'diamond_model': this.value'}, // data to be submit
+            			{'diamond_model': this.value}, // data to be submit
            		       function(data, status, jqXHR) {// success callback
            		                if(data!='success') {
            		                	alert('An error occurred: '+data)
